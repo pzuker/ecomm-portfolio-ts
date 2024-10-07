@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const NavigationContainer = styled.div`
   height: 70px;
@@ -22,7 +22,12 @@ export const NavLinksContainer = styled.div`
   justify-content: flex-end;
 `;
 
-export const NavLink = styled(Link)`
+type NavLinkProps = {
+  as?: keyof JSX.IntrinsicElements; // Allow `as` prop to switch to other elements
+  to?: string; // Optional because it's not required when using `as="span"`
+};
+
+export const NavLink = styled(Link)<NavLinkProps>`
   padding: 10px 15px;
   cursor: pointer;
 `;

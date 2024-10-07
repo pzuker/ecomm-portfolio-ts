@@ -1,13 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   clearItemFromCart,
   addItemToCart,
   removeItemFromCart,
-} from "../../store/cart/cart.action";
-import { selectCartItems } from "../../store/cart/cart.selector";
+} from '../../store/cart/cart.action';
+import { selectCartItems } from '../../store/cart/cart.selector';
 
-import "./checkout-item.styles.scss";
+import './checkout-item.styles.scss';
 
 const CheckoutItem = ({ cartItem }) => {
   const dispatch = useDispatch();
@@ -21,24 +21,24 @@ const CheckoutItem = ({ cartItem }) => {
     dispatch(removeItemFromCart(cartItems, cartItem));
 
   return (
-    <div className="checkout-item-container" key={id}>
-      <div className="image-container">
+    <div className='checkout-item-container' key={id}>
+      <div className='image-container'>
         <img src={imageUrl} alt={name} />
       </div>
 
-      <span className="name">{cartItem.name}</span>
+      <span className='name'>{cartItem.name}</span>
 
-      <span className="quantity">
-        <div className="arrow" onClick={removeItemHandler}>
+      <span className='quantity'>
+        <div className='arrow' onClick={removeItemHandler}>
           &#10094;
         </div>
-        <span className="value"> {quantity}</span>
-        <div className="arrow" onClick={addItemHandler}>
+        <span className='value'> {quantity}</span>
+        <div className='arrow' onClick={addItemHandler}>
           &#10095;
         </div>
       </span>
-      <span className="price">{price}</span>
-      <div className="remove-button" onClick={clearItemHandler}>
+      <span className='price'>{price}</span>
+      <div className='remove-button' onClick={clearItemHandler}>
         &#10005;
       </div>
     </div>
